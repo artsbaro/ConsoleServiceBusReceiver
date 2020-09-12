@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleServiceBus", "ConsoleServiceBus\ConsoleServiceBus.csproj", "{676026E1-240C-4C38-9F50-743FDF99DE46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleServiceBus", "ConsoleServiceBus\ConsoleServiceBus.csproj", "{676026E1-240C-4C38-9F50-743FDF99DE46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusSendMessage", "ServiceBusSendMessage\ServiceBusSendMessage.csproj", "{2A2B362F-5AA3-4F26-82D0-8199A0270E56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusReceiveMessage", "ServiceBusReceiveMessage\ServiceBusReceiveMessage.csproj", "{6D04C094-E49A-4C65-89EE-F1C1FDB192E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{676026E1-240C-4C38-9F50-743FDF99DE46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{676026E1-240C-4C38-9F50-743FDF99DE46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{676026E1-240C-4C38-9F50-743FDF99DE46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A2B362F-5AA3-4F26-82D0-8199A0270E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A2B362F-5AA3-4F26-82D0-8199A0270E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A2B362F-5AA3-4F26-82D0-8199A0270E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A2B362F-5AA3-4F26-82D0-8199A0270E56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D04C094-E49A-4C65-89EE-F1C1FDB192E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D04C094-E49A-4C65-89EE-F1C1FDB192E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D04C094-E49A-4C65-89EE-F1C1FDB192E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D04C094-E49A-4C65-89EE-F1C1FDB192E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

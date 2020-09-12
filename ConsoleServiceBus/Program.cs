@@ -15,22 +15,18 @@ namespace ConsoleServiceBus
 
         private static void Main(string[] args)
         {
+            ReceiveMessagesAsync().GetAwaiter().GetResult();
+        }
 
-            if (args.Length <= 0 || args[0] == "sender")
+        private static async Task EnviarMensagens()
+        {
+            for (int i = 0; i < 5; i++)
             {
-                SendMessagesAsync().GetAwaiter().GetResult();
-                Console.WriteLine("messages were sent");
-            }
-            else if (args[0] == "receiver")
-            {
-                ReceiveMessagesAsync().GetAwaiter().GetResult();
-                Console.WriteLine("messages were received");
-            }
-            else
-                Console.WriteLine("nothing to do");
+                Thread.Sleep(5000);
 
-            Console.ReadLine();
-
+                await SendMessagesAsync();
+                Console.WriteLine($"{i} mensagens enviadas");
+            }
         }
 
         private static async Task SendMessagesAsync()
@@ -42,8 +38,7 @@ namespace ConsoleServiceBus
                 {
                     Console.WriteLine($"Will send message: {msg}");
                     return new Message(Encoding.UTF8.GetBytes(msg));
-                })
-                        .ToList();
+                }).ToList();
             await _queueClient.SendAsync(messages);
             await _queueClient.CloseAsync();
         }
@@ -67,7 +62,12 @@ namespace ConsoleServiceBus
 
         private static async Task MessageHandler(Message message, CancellationToken cancellationToken)
         {
-            Console.WriteLine($"Received message:{Encoding.UTF8.GetString(message.Body)}");
+            var service = new Service();
+            var post= service.Posts.OrderByDescending(x => x.PostId).FirstOrDefault();
+            post.Ingredients += message.Body.ToString();
+
+            service.Create(post).GetAwaiter().GetResult();
+
             await _queueClient.CompleteAsync(message.SystemProperties.LockToken);
         }
     }
